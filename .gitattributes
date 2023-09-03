@@ -1,4 +1,17 @@
 .gitignore linguist-vendored
+.eslintrc.cjs linguist-vendored
+.prettierrc.json linguist-vendored
+env.d.ts linguist-vendored
+LICENSE linguist-vendored
+package-lock.json linguist-vendored
+package.json linguist-vendored
+README.md linguist-vendored
+tsconfig.app.json linguist-vendored
+tsconfig.json linguist-vendored
+tsconfig.node.json linguist-vendored
+vite.config.ts linguist-vendored
+.vscode/extensions.json linguist-vendored
+public/favico.ico linguist-vendored
 
 * text=auto eol=crlf
 *.{cmd,[cC][mM][dD]} text eol=crlf
