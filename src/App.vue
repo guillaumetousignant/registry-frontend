@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { useI18n } from 'vue-i18n'
+const t  = useI18n() // call `useI18n`, and spread `t` from  `useI18n` returning
 </script>
 
 <template>
