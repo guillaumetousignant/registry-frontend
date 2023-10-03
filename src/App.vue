@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import RegistryTable from './components/RegistryTable.vue'
 import { useI18n } from 'vue-i18n'
 const t  = useI18n() // call `useI18n`, and spread `t` from  `useI18n` returning
 </script>
@@ -11,6 +12,7 @@ const t  = useI18n() // call `useI18n`, and spread `t` from  `useI18n` returning
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
+      <RegistryTable/>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
