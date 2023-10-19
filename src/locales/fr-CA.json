@@ -1,3 +1,12 @@
 {
-  "fish": "poisson"
+  "fish": "poisson",
+  "title": "Registre bébé Ari & Guillaume",
+  "registry": "Registre",
+  "about": "À propos",
+  "table": {
+    "item": "Item",
+    "colour": "Couleur",
+    "link": "Lien",
+    "assigned": "Acheté par"
+  }
 }

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+
 const items = [
     {
         name: "Poussette X",
@@ -25,10 +28,10 @@ const items = [
   <v-table>
     <thead>
       <tr>
-        <th class="text-left">Item TRADUIRE</th>
-        <th class="text-left">Couleur TRADUIRE</th>
-        <th class="text-left">Lien TRADUIRE</th>
-        <th class="text-left">Acheté par TRADUIRE</th>
+        <th class="text-left">{{ t("table.item") }}</th>
+        <th class="text-left">{{ t("table.colour") }}</th>
+        <th class="text-left">{{ t("table.link") }}</th>
+        <th class="text-left">{{ t("table.assigned") }}</th>
       </tr>
     </thead>
     <tbody>
