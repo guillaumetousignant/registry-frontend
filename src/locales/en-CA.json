@@ -1,12 +1,18 @@
 {
-  "fish": "fish",
-  "title": "Ari & Guillaume Baby Registry",
-  "registry": "Registry",
-  "about": "About",
-  "table": {
-    "item": "Item",
-    "colour": "Colour",
-    "link": "Link",
-    "assigned": "Bought by"
-  }
+    "fish": "fish",
+    "title": "Ari & Guillaume Baby Registry",
+    "registry": "Registry",
+    "about": "About",
+    "table": {
+        "item": "Item",
+        "colour": "Colour",
+        "link": "Link",
+        "assigned": "Bought by"
+    },
+    "login": {
+        "title": "Login",
+        "error": "Incorrect password",
+        "submit": "Submit",
+        "password": "Password"
+    }
 }

@@ -4,7 +4,11 @@ import axios from 'axios'
 import { onMounted } from 'vue'
 import { ref } from 'vue'
 import type { Ref } from 'vue'
+import { useLogger } from 'vue-logger-plugin'
+import { useTokenStore } from '@/stores/token'
 const { t } = useI18n()
+const log = useLogger()
+const token = useTokenStore()
 
 interface Item {
   name: string;
@@ -17,12 +21,16 @@ let items: Ref<Array<Item>> = ref([])
 
     // onUpdated maybe?
 onMounted(() => {
-    axios.get(" http://127.0.0.1:8000/api/v1/items").then(response => {
-        items.value = response.data.data
-      },
-      error => {
-        console.log(error)
-      })
+    if (token.token != null) {
+        axios.get(" http://127.0.0.1:8000/api/v1/items", {
+            headers: { Authorization: `Bearer ${token.token}` }
+        }).then(response => {
+            items.value = response.data.data
+        },
+        error => {
+            log.error(error)
+        })
+    }
 })
 </script>
 

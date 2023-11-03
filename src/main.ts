@@ -6,8 +6,27 @@ import { createI18n } from 'vue-i18n'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import { aliases, mdi } from "vuetify/lib/iconsets/mdi";
+import "@mdi/font/css/materialdesignicons.css";
+
+// logger
+import { createLogger } from 'vue-logger-plugin'
+
+const isProduction = process.env.NODE_ENV === 'production';
+
+const logger = createLogger({
+    enabled: true,
+    level:  isProduction ? 'error' : 'debug',
+})
 
 const vuetify = createVuetify({
+  icons: {
+    defaultSet: "mdi",
+    aliases,
+    sets: {
+      mdi,
+    },
+  },
   components,
   directives,
 })
@@ -36,5 +55,6 @@ app.use(createPinia())
 app.use(router)
 app.use(i18n)
 app.use(vuetify)
+app.use(logger)
 
 app.mount('#app')

@@ -1,50 +1,11 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-import RegistryTable from './components/RegistryTable.vue'
-import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
-import { ref } from 'vue'
-const drawer = ref(false)
+import {  RouterView } from 'vue-router'
+import NavBar from './components/NavBar.vue'
 </script>
 
 <template>
     <v-layout>
-        <v-app-bar :elevation="2" color="primary">
-            <template v-slot:prepend>
-                <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            </template>
-
-            <v-app-bar-title>{{ t("title") }}</v-app-bar-title>
-
-            <template v-slot:append>
-                <v-btn icon="mdi-dots-vertical"></v-btn>
-            </template>
-        </v-app-bar>
-
-        <v-navigation-drawer
-            v-model="drawer"
-            temporary
-        >
-            <v-list nav>
-                <v-list-item title="t('registry')"></v-list-item>
-                <v-list-item title="t('about')"></v-list-item>
-            </v-list>
-        </v-navigation-drawer>
-
-        <header>
-            <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-            <div class="wrapper">
-            <HelloWorld msg="You did it!" />
-            <RegistryTable/>
-
-            <nav>
-                <RouterLink to="/">{{ t("fish") }}</RouterLink>
-                <RouterLink to="/about">About</RouterLink>
-            </nav>
-            </div>
-        </header>
+        <NavBar/>
 
         <RouterView />
     </v-layout>

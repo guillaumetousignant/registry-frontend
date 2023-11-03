@@ -1,12 +1,18 @@
 {
-  "fish": "poisson",
-  "title": "Registre bébé Ari & Guillaume",
-  "registry": "Registre",
-  "about": "À propos",
-  "table": {
-    "item": "Item",
-    "colour": "Couleur",
-    "link": "Lien",
-    "assigned": "Acheté par"
-  }
+    "fish": "poisson",
+    "title": "Registre bébé Ari & Guillaume",
+    "registry": "Registre",
+    "about": "À propos",
+    "table": {
+        "item": "Item",
+        "colour": "Couleur",
+        "link": "Lien",
+        "assigned": "Acheté par"
+    },
+    "login": {
+        "title": "Connexion",
+        "error": "Mot de passe erroné",
+        "submit": "Soumettre",
+        "password": "Mot de passe"
+    }
 }
