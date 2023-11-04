@@ -49,7 +49,8 @@ onMounted(() => {
         <td>{{ item.name }}</td>
         <td>{{ item.colour }}</td>
         <td>{{ item.link }}</td>
-        <td>{{ item.assigned }}</td>
+        <td v-if="item.assigned == null">oh noooes</td>
+        <td v-else>{{ item.assigned }}</td>
       </tr>
     </tbody>
   </v-table>
