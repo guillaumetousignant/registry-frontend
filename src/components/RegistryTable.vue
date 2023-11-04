@@ -6,15 +6,17 @@ import { ref } from 'vue'
 import type { Ref } from 'vue'
 import { useLogger } from 'vue-logger-plugin'
 import { useTokenStore } from '@/stores/token'
+import ClaimButton from './ClaimButton.vue'
 const { t } = useI18n()
 const log = useLogger()
 const token = useTokenStore()
 
 interface Item {
-  name: string;
-  colour: string;
-  link: string;
-  assigned: string;
+    id: number;
+    name: string;
+    colour: string;
+    link: string;
+    assigned: string;
 }
 
 let items: Ref<Array<Item>> = ref([])
@@ -49,7 +51,7 @@ onMounted(() => {
         <td>{{ item.name }}</td>
         <td>{{ item.colour }}</td>
         <td>{{ item.link }}</td>
-        <td v-if="item.assigned == null">oh noooes</td>
+        <td v-if="item.assigned == null"><ClaimButton item_id=item.id /></td>
         <td v-else>{{ item.assigned }}</td>
       </tr>
     </tbody>
