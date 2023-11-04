@@ -39,8 +39,3 @@ const items = [
         <v-list :items="items" nav></v-list>
     </v-navigation-drawer>
 </template>
-
-<style scoped>
-.v-list-item--link::before { background-color: red; }
-.theme--light.v-list-item:hover::before { opacity: 0.64; }
-</style>
