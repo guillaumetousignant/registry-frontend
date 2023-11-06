@@ -7,9 +7,12 @@ import type { Ref } from 'vue'
 import { useLogger } from 'vue-logger-plugin'
 import { useTokenStore } from '@/stores/token'
 import ClaimButton from './ClaimButton.vue'
+import { useRouter } from 'vue-router'
+
 const { t } = useI18n()
 const log = useLogger()
 const token = useTokenStore()
+const router = useRouter()
 
 interface Item {
     id: number;
@@ -20,24 +23,51 @@ interface Item {
 }
 
 let items: Ref<Array<Item>> = ref([])
+let alert = ref(false)
+let alert_type: Ref<"success" | "error" | "warning" | "info" | undefined> = ref(undefined)
+let alert_title = ref("")
+let alert_text = ref("")
 
-    // onUpdated maybe?
+function getItems(){
+    axios.get("http://127.0.0.1:8000/api/v1/items", {
+        headers: { Authorization: `Bearer ${token.token}` }
+    }).then(response => {
+        items.value = response.data.data
+    },
+    error => {
+        log.error(error)
+    })
+}
+
+function alreadyClaimed() {
+    alert.value = true
+    alert_type.value = "warning"
+    alert_title.value = t("claim.warning_title")
+    alert_text.value = t("claim.conflict_error_text")
+    getItems()
+}
+
+function unauthorizedResponse() {
+    router.push("/login")
+}
+
+// onUpdated maybe?
 onMounted(() => {
     if (token.token != null) {
-        axios.get(" http://127.0.0.1:8000/api/v1/items", {
-            headers: { Authorization: `Bearer ${token.token}` }
-        }).then(response => {
-            items.value = response.data.data
-        },
-        error => {
-            log.error(error)
-        })
+        getItems()
     }
 })
 </script>
 
 <template>
-  <v-table>
+  <v-alert
+    v-model="alert"
+    closable
+    :type="alert_type"
+    :title="alert_title"
+    :text="alert_text"
+  ></v-alert>
+  <v-table fixed-header fluid style="width: 100%; max-width: 800px; min-width: 700px;">
     <thead>
       <tr>
         <th class="text-left">{{ t("table.item") }}</th>
@@ -51,7 +81,7 @@ onMounted(() => {
         <td>{{ item.name }}</td>
         <td>{{ item.colour }}</td>
         <td>{{ item.link }}</td>
-        <td v-if="item.assigned == null"><ClaimButton item_id=item.id /></td>
+        <td v-if="item.assigned == null"><ClaimButton :item_id=item.id @claimed="getItems" @conflict="alreadyClaimed" @unauthorized="unauthorizedResponse"/></td>
         <td v-else>{{ item.assigned }}</td>
       </tr>
     </tbody>

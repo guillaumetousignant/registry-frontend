@@ -3,7 +3,8 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { createI18n } from 'vue-i18n'
-import { createVuetify } from 'vuetify'
+import 'vuetify/styles'
+import { createVuetify, type ThemeDefinition } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { aliases, mdi } from "vuetify/lib/iconsets/mdi";
@@ -19,6 +20,23 @@ const logger = createLogger({
     level:  isProduction ? 'error' : 'debug',
 })
 
+const myCustomLightTheme: ThemeDefinition = {
+    dark: false,
+    colors: {
+        background: '#FFFFFF',
+        surface: '#FFFFFF',
+        primary: '#FFFE91',
+        'primary-darken-1': '#3700B3',
+        secondary: '#03DAC6',
+        'secondary-darken-1': '#018786',
+        error: '#B00020',
+        info: '#2196F3',
+        success: '#4CAF50',
+        warning: '#FB8C00',
+        something: '#00ff00',
+    },
+}
+
 const vuetify = createVuetify({
   icons: {
     defaultSet: "mdi",
@@ -29,6 +47,12 @@ const vuetify = createVuetify({
   },
   components,
   directives,
+  theme: {
+    defaultTheme: 'myCustomLightTheme',
+    themes: {
+      myCustomLightTheme,
+    },
+  },
 })
 
 import App from './App.vue'

@@ -14,5 +14,18 @@
         "error": "Mot de passe erroné",
         "submit": "Soumettre",
         "password": "Mot de passe"
+    },
+    "claim": {
+        "error": "Error d'assignation de l'item",
+        "empty": "Nom manquant",
+        "conflict": "Assignement conflictuel",
+        "internal": "Erreur interne",
+        "unauthorized": "Non autorisé",
+        "unknown": "Erreur inconnue",
+        "submit": "Assigner",
+        "label": "Assigné(e)",
+        "error_title": "Erreur",
+        "warning_title": "Avertissement",
+        "conflict_error_text": "Conflit lors de l'assignation de l'item, l'item est peut-être déjà assigné."
     }
 }

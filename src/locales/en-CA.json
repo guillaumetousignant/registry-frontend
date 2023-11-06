@@ -14,5 +14,18 @@
         "error": "Incorrect password",
         "submit": "Submit",
         "password": "Password"
+    },
+    "claim": {
+        "error": "Error assigning item",
+        "empty": "Missing assigned name",
+        "conflict": "Conflicting assignment",
+        "internal": "Internal error",
+        "unauthorized": "Unauthorized",
+        "unknown": "Unknown error",
+        "submit": "Assign",
+        "label": "Assigned",
+        "error_title": "Error",
+        "warning_title": "Warning",
+        "conflict_error_text": "Conflict while assigning item, item is probably already assigned."
     }
 }

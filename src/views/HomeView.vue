@@ -15,7 +15,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <main>
     <RegistryTable/>
-  </main>
 </template>

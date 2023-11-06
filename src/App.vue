@@ -4,11 +4,13 @@ import NavBar from './components/NavBar.vue'
 </script>
 
 <template>
-    <v-layout>
+    <v-app class="rounded rounded-md">
         <NavBar/>
 
-        <RouterView />
-    </v-layout>
+        <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
+            <RouterView />
+        </v-main>
+    </v-app>
 </template>
 
 <style scoped>

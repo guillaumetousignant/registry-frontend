@@ -4,19 +4,19 @@ const { t } = useI18n()
 import { ref } from 'vue'
 let drawer = ref(false)
 const items = [
-        { title: t('registry'), props: {
-            prependIcon: 'mdi-baby-carriage',
-            to: "/",
-            color: 'secondary',
-          }
-        },
-        { title: t('about'), props: {
-            prependIcon: 'mdi-information',
-            to: "/about",
-            color: 'primary',
-          }
-        },
-      ]
+    { title: t('registry'), props: {
+        prependIcon: 'mdi-baby-carriage',
+        to: "/",
+        color: 'secondary',
+        }
+    },
+    { title: t('about'), props: {
+        prependIcon: 'mdi-information',
+        to: "/about",
+        color: 'primary',
+        }
+    },
+]
 </script>
 
 <template>
