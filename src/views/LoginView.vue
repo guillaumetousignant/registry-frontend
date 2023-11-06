@@ -22,7 +22,7 @@ async function authenticate() {
     login_error.value = false
     is_loading.value = true
     try {
-        axios.get(" http://127.0.0.1:8000/api/v1/authorize/", {
+        axios.get("https://api.arietguillaume.ca/api/v1/authorize/", {
         // Axios looks for the `auth` option, and, if it is set, formats a
         // basic auth header for you automatically.
             auth: {

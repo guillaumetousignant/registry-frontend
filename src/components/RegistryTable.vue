@@ -29,7 +29,7 @@ let alert_title = ref("")
 let alert_text = ref("")
 
 function getItems(){
-    axios.get("http://127.0.0.1:8000/api/v1/items", {
+    axios.get("https://api.arietguillaume.ca/api/v1/items", {
         headers: { Authorization: `Bearer ${token.token}` }
     }).then(response => {
         items.value = response.data.data

@@ -50,7 +50,7 @@ function claimItems(){
     error.value = ErrorType.None
 
     if (assigned.value) {
-        axios.post(`http://127.0.0.1:8000/api/v1/items/${props.item_id}/claim`, { assigned: assigned.value }, {
+        axios.post(`https://api.arietguillaume.ca/api/v1/items/${props.item_id}/claim`, { assigned: assigned.value }, {
             headers: { Authorization: `Bearer ${token.token}` }
         }).then(response => {
             if (response.status == 202) {
