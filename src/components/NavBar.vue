@@ -13,7 +13,7 @@ const items = [
     { title: t('about'), props: {
         prependIcon: 'mdi-information',
         to: "/about",
-        color: 'primary',
+        color: 'secondary',
         }
     },
 ]
