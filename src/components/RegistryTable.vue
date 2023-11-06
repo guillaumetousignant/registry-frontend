@@ -67,7 +67,12 @@ onMounted(() => {
     :title="alert_title"
     :text="alert_text"
   ></v-alert>
-  <v-table fixed-header style="max-width: 1280px; min-width: 512px;">
+  <v-table 
+    fixed-header
+    style="max-width: 1280px;
+    min-width: 512px;"
+    class="registry_table"
+  >
     <thead>
       <tr>
         <th class="text-left">{{ t("table.item") }}</th>
@@ -87,3 +92,8 @@ onMounted(() => {
     </tbody>
   </v-table>
 </template>
+
+<!-- There has to be a better way of doing this... -->
+<style scoped>
+    .registry_table { height:calc(100vh - 64px)} 
+</style>
