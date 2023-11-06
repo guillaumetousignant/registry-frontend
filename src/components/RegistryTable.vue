@@ -85,7 +85,11 @@ onMounted(() => {
       <tr v-for="item in items" :key="item.name">
         <td>{{ item.name }}</td>
         <td>{{ item.colour }}</td>
-        <td>{{ item.link }}</td>
+        <td>
+            <a :href="item.link">
+                {{ item.link }}
+            </a>
+        </td>
         <td v-if="item.assigned == null"><ClaimButton :item_id=item.id @claimed="getItems" @conflict="alreadyClaimed" @unauthorized="unauthorizedResponse" style="min-width: 350px;"/></td>
         <td v-else style="padding: 16px 16px 16px 16px">{{ item.assigned }}</td>
       </tr>
