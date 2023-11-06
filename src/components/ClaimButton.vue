@@ -101,9 +101,8 @@ function claimItems(){
     <div class="d-flex align-center justify-space-between">
         <v-text-field
             style="padding-right: 16px"
-            clearable
             hide-details
-            prepend-icon="mdi-account"
+            prepend-inner-icon="mdi-account"
             variant="solo"
             v-model="assigned"
             :label='t("claim.label")'
