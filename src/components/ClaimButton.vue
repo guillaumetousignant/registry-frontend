@@ -100,10 +100,11 @@ function claimItems(){
 <template>
     <div class="d-flex align-center justify-space-between">
         <v-text-field
-            style="padding-right: 16px"
+            style="padding: 8px 16px 8px 0px"
+            density="compact"
             hide-details
             prepend-inner-icon="mdi-account"
-            variant="solo"
+            variant="outlined"
             v-model="assigned"
             :label='t("claim.label")'
             :error-messages="claim_error_message"
