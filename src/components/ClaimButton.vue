@@ -98,17 +98,20 @@ function claimItems(){
 </script>
 
 <template>
-    <div class="claim_button">
+    <div class="d-flex align-center justify-space-between">
         <v-text-field
+            style="padding-right: 16px"
             clearable
+            hide-details
             prepend-icon="mdi-account"
-            variant="outlined"
+            variant="solo"
             v-model="assigned"
             :label='t("claim.label")'
             :error-messages="claim_error_message"
             v-on:keyup.enter="claimItems"
         ></v-text-field>
         <v-btn 
+            style="padding-left: 16px"
             color="success" 
             :loading="is_loading"
             @click="claimItems"

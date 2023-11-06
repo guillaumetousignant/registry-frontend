@@ -67,7 +67,7 @@ onMounted(() => {
     :title="alert_title"
     :text="alert_text"
   ></v-alert>
-  <v-table fixed-header fluid style="width: 100%; max-width: 800px; min-width: 700px;">
+  <v-table fixed-header style="max-width: 1280px; min-width: 512px;">
     <thead>
       <tr>
         <th class="text-left">{{ t("table.item") }}</th>
@@ -81,7 +81,7 @@ onMounted(() => {
         <td>{{ item.name }}</td>
         <td>{{ item.colour }}</td>
         <td>{{ item.link }}</td>
-        <td v-if="item.assigned == null"><ClaimButton :item_id=item.id @claimed="getItems" @conflict="alreadyClaimed" @unauthorized="unauthorizedResponse"/></td>
+        <td v-if="item.assigned == null"><ClaimButton :item_id=item.id @claimed="getItems" @conflict="alreadyClaimed" @unauthorized="unauthorizedResponse" style="min-width: 350px;"/></td>
         <td v-else>{{ item.assigned }}</td>
       </tr>
     </tbody>
