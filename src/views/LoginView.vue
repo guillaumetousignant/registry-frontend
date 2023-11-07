@@ -63,6 +63,7 @@ async function authenticate() {
                 v-bind:label='t("login.password")'
                 name="password"
                 prepend-icon="mdi-lock"
+                variant="outlined"
                 :type="show ? 'text' : 'password'"
                 :error-messages="login_error_message"
                 :append-icon='show ? "mdi-eye" : "mdi-eye-off"'
