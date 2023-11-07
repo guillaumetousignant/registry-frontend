@@ -5,17 +5,17 @@ import 'vuetify/styles'
 import { createVuetify, type ThemeDefinition } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
-import { aliases, mdi } from "vuetify/lib/iconsets/mdi";
-import "@mdi/font/css/materialdesignicons.css";
+import { aliases, mdi } from 'vuetify/lib/iconsets/mdi'
+import '@mdi/font/css/materialdesignicons.css'
 
 // logger
 import { createLogger } from 'vue-logger-plugin'
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production'
 
 const logger = createLogger({
     enabled: true,
-    level:  isProduction ? 'error' : 'debug',
+    level: isProduction ? 'error' : 'debug'
 })
 
 const myCustomLightTheme: ThemeDefinition = {
@@ -31,26 +31,26 @@ const myCustomLightTheme: ThemeDefinition = {
         info: '#2196F3',
         success: '#4CAF50',
         warning: '#FB8C00',
-        something: '#00ff00',
-    },
+        something: '#00ff00'
+    }
 }
 
 const vuetify = createVuetify({
-  icons: {
-    defaultSet: "mdi",
-    aliases,
-    sets: {
-      mdi,
+    icons: {
+        defaultSet: 'mdi',
+        aliases,
+        sets: {
+            mdi
+        }
     },
-  },
-  components,
-  directives,
-  theme: {
-    defaultTheme: 'myCustomLightTheme',
-    themes: {
-      myCustomLightTheme,
-    },
-  },
+    components,
+    directives,
+    theme: {
+        defaultTheme: 'myCustomLightTheme',
+        themes: {
+            myCustomLightTheme
+        }
+    }
 })
 
 import App from './App.vue'
@@ -61,14 +61,14 @@ import enCA from './locales/en-CA.json'
 type MessageSchema = typeof enCA
 
 const i18n = createI18n<[MessageSchema], 'en-CA' | 'fr-CA'>({
-  inheritLocale: true,
-  legacy: false, // you must set `false`, to use Composition API
-  locale: 'fr-CA', // set locale
-  fallbackLocale: 'en-CA', // set fallback locale
-  messages: {
-    'fr-CA': frCA,
-    'en-CA': enCA
-  }
+    inheritLocale: true,
+    legacy: false, // you must set `false`, to use Composition API
+    locale: 'fr-CA', // set locale
+    fallbackLocale: 'en-CA', // set fallback locale
+    messages: {
+        'fr-CA': frCA,
+        'en-CA': enCA
+    }
 })
 
 const app = createApp(App)

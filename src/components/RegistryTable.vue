@@ -15,40 +15,44 @@ const token = useTokenStore()
 const router = useRouter()
 
 interface Item {
-    id: number;
-    name: string;
-    colour: string;
-    link: string;
-    assigned: string;
+    id: number
+    name: string
+    colour: string
+    link: string
+    assigned: string
 }
 
 let items: Ref<Array<Item>> = ref([])
 let alert = ref(false)
-let alert_type: Ref<"success" | "error" | "warning" | "info" | undefined> = ref(undefined)
-let alert_title = ref("")
-let alert_text = ref("")
+let alert_type: Ref<'success' | 'error' | 'warning' | 'info' | undefined> = ref(undefined)
+let alert_title = ref('')
+let alert_text = ref('')
 
-function getItems(){
-    axios.get("https://api.arietguillaume.ca/api/v1/items", {
-        headers: { Authorization: `Bearer ${token.token}` }
-    }).then(response => {
-        items.value = response.data.data
-    },
-    error => {
-        log.error(error)
-    })
+function getItems() {
+    axios
+        .get('https://api.arietguillaume.ca/api/v1/items', {
+            headers: { Authorization: `Bearer ${token.token}` }
+        })
+        .then(
+            (response) => {
+                items.value = response.data.data
+            },
+            (error) => {
+                log.error(error)
+            }
+        )
 }
 
 function alreadyClaimed() {
     alert.value = true
-    alert_type.value = "warning"
-    alert_title.value = t("claim.warning_title")
-    alert_text.value = t("claim.conflict_error_text")
+    alert_type.value = 'warning'
+    alert_title.value = t('claim.warning_title')
+    alert_text.value = t('claim.conflict_error_text')
     getItems()
 }
 
 function unauthorizedResponse() {
-    router.push("/login")
+    router.push('/login')
 }
 
 // onUpdated maybe?
@@ -60,44 +64,48 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-alert
-    v-model="alert"
-    closable
-    :type="alert_type"
-    :title="alert_title"
-    :text="alert_text"
-  ></v-alert>
-  <v-table 
-    fixed-header
-    style="max-width: 1680px;
-    min-width: 768px;"
-    class="registry_table"
-  >
-    <thead>
-      <tr>
-        <th class="text-left">{{ t("table.item") }}</th>
-        <th class="text-left">{{ t("table.colour") }}</th>
-        <th class="text-left">{{ t("table.link") }}</th>
-        <th class="text-left">{{ t("table.assigned") }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="item in items" :key="item.name">
-        <td style="min-width: 96px;">{{ item.name }}</td>
-        <td style="min-width: 96px;">{{ item.colour }}</td>
-        <td style="min-width: 96px;">
-            <a :href="item.link">
-                {{ item.link }}
-            </a>
-        </td>
-        <td v-if="item.assigned == null"><ClaimButton :item_id=item.id @claimed="getItems" @conflict="alreadyClaimed" @unauthorized="unauthorizedResponse"/></td>
-        <td v-else style="padding: 16px 16px 16px 16px">{{ item.assigned }}</td>
-      </tr>
-    </tbody>
-  </v-table>
+    <v-alert
+        v-model="alert"
+        closable
+        :type="alert_type"
+        :title="alert_title"
+        :text="alert_text"
+    ></v-alert>
+    <v-table fixed-header style="max-width: 1680px; min-width: 768px" class="registry_table">
+        <thead>
+            <tr>
+                <th class="text-left">{{ t('table.item') }}</th>
+                <th class="text-left">{{ t('table.colour') }}</th>
+                <th class="text-left">{{ t('table.link') }}</th>
+                <th class="text-left">{{ t('table.assigned') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="item in items" :key="item.name">
+                <td style="min-width: 96px">{{ item.name }}</td>
+                <td style="min-width: 96px">{{ item.colour }}</td>
+                <td style="min-width: 96px">
+                    <a :href="item.link">
+                        {{ item.link }}
+                    </a>
+                </td>
+                <td v-if="item.assigned == null">
+                    <ClaimButton
+                        :item_id="item.id"
+                        @claimed="getItems"
+                        @conflict="alreadyClaimed"
+                        @unauthorized="unauthorizedResponse"
+                    />
+                </td>
+                <td v-else style="padding: 16px 16px 16px 16px">{{ item.assigned }}</td>
+            </tr>
+        </tbody>
+    </v-table>
 </template>
 
 <!-- There has to be a better way of doing this... -->
 <style scoped>
-    .registry_table { height:calc(100vh - 64px)} 
+.registry_table {
+    height: calc(100vh - 64px);
+}
 </style>
