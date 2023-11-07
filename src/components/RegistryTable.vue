@@ -69,8 +69,8 @@ onMounted(() => {
   ></v-alert>
   <v-table 
     fixed-header
-    style="max-width: 1280px;
-    min-width: 512px;"
+    style="max-width: 1680px;
+    min-width: 768px;"
     class="registry_table"
   >
     <thead>
@@ -83,9 +83,9 @@ onMounted(() => {
     </thead>
     <tbody>
       <tr v-for="item in items" :key="item.name">
-        <td>{{ item.name }}</td>
-        <td>{{ item.colour }}</td>
-        <td>
+        <td style="min-width: 96px;">{{ item.name }}</td>
+        <td style="min-width: 96px;">{{ item.colour }}</td>
+        <td style="min-width: 96px;">
             <a :href="item.link">
                 {{ item.link }}
             </a>
