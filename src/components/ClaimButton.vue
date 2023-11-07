@@ -100,7 +100,7 @@ function claimItems(){
 <template>
     <div class="d-flex align-center justify-space-between">
         <v-text-field
-            style="padding: 8px 16px 8px 0px"
+            style="padding: 8px 16px 8px 0px; min-width: 256px;"
             density="compact"
             hide-details
             prepend-inner-icon="mdi-account"
