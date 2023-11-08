@@ -52,7 +52,7 @@ function alreadyClaimed() {
 }
 
 function unauthorizedResponse() {
-    router.push('/login')
+    router.push('/')
 }
 
 // onUpdated maybe?
@@ -71,7 +71,7 @@ onMounted(() => {
         :title="alert_title"
         :text="alert_text"
     ></v-alert>
-    <v-table fixed-header style="max-width: 1680px; min-width: 768px" class="registry_table">
+    <v-table fixed-header style="max-width: 1680px; min-width: 128px; padding: 16px 16px 16px 16px;" class="registry_table">
         <thead>
             <tr>
                 <th class="text-left">{{ t('table.item') }}</th>
@@ -85,7 +85,7 @@ onMounted(() => {
                 <td style="min-width: 96px">{{ item.name }}</td>
                 <td style="min-width: 96px">{{ item.colour }}</td>
                 <td style="min-width: 96px">
-                    <a :href="item.link">
+                    <a :href="item.link" style="text-decoration: none;">
                         {{ item.link }}
                     </a>
                 </td>
@@ -102,10 +102,3 @@ onMounted(() => {
         </tbody>
     </v-table>
 </template>
-
-<!-- There has to be a better way of doing this... -->
-<style scoped>
-.registry_table {
-    height: calc(100vh - 64px);
-}
-</style>

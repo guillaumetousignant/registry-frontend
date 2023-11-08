@@ -36,7 +36,7 @@ async function authenticate() {
                     password.value = ''
 
                     token.token = response.data
-                    router.push('/')
+                    router.push('/home')
                 },
                 (error) => {
                     login_error.value = true
@@ -77,7 +77,7 @@ async function authenticate() {
         </v-card-text>
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="success" :loading="is_loading" @click="authenticate">
+            <v-btn color="secondary" :loading="is_loading" @click="authenticate">
                 {{ t('login.submit') }}
             </v-btn>
         </v-card-actions>

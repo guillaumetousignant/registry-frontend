@@ -9,7 +9,7 @@ const router = useRouter()
 
 onMounted(() => {
     if (token.token == null) {
-        router.push('/login')
+        router.push('/')
     }
 })
 </script>

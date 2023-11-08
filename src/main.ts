@@ -5,17 +5,15 @@ import 'vuetify/styles'
 import { createVuetify, type ThemeDefinition } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
-import { aliases, mdi } from 'vuetify/lib/iconsets/mdi'
+import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import '@mdi/font/css/materialdesignicons.css'
 
 // logger
 import { createLogger } from 'vue-logger-plugin'
 
-const isProduction = process.env.NODE_ENV === 'production'
-
 const logger = createLogger({
     enabled: true,
-    level: isProduction ? 'error' : 'debug'
+    level: "error"
 })
 
 const myCustomLightTheme: ThemeDefinition = {
@@ -23,15 +21,17 @@ const myCustomLightTheme: ThemeDefinition = {
     colors: {
         background: '#FFFFFF',
         surface: '#FFFFFF',
-        primary: '#FFFE91',
-        'primary-darken-1': '#3700B3',
-        secondary: '#03DAC6',
-        'secondary-darken-1': '#018786',
-        error: '#B00020',
+        primary: '#FFEB3B',
+        'primary-lighten-1': '#FFEE58',
+        'primary-lighten-2': '#FFF176',
+        'primary-lighten-3': '#FFF59D',
+        'primary-lighten-4': '#FFF9C4',
+        'primary-lighten-5': '#FFFDE7',
+        secondary: '#E91E63',
+        error: '#F44336',
         info: '#2196F3',
         success: '#4CAF50',
-        warning: '#FB8C00',
-        something: '#00ff00'
+        warning: '#FF9800'
     }
 }
 

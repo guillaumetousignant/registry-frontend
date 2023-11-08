@@ -8,7 +8,7 @@ const items = [
         title: t('registry'),
         props: {
             prependIcon: 'mdi-baby-carriage',
-            to: '/',
+            to: '/home',
             color: 'secondary'
         }
     },
@@ -21,19 +21,25 @@ const items = [
         }
     }
 ]
+
+import logo from '@/assets/logo.svg'
 </script>
 
 <template>
-    <v-app-bar :elevation="2" color="primary">
+    <v-app-bar :elevation="2" color="primary-lighten-2">
         <template v-slot:prepend>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         </template>
 
+
         <v-app-bar-title>{{ t('title') }}</v-app-bar-title>
 
-        <template v-slot:append>
-            <v-btn icon="mdi-dots-vertical"></v-btn>
-        </template>
+        <v-spacer></v-spacer>
+
+        <v-img
+            height="48"
+            :src="logo"
+        ></v-img>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" temporary>
