@@ -82,9 +82,9 @@ onMounted(() => {
         </thead>
         <tbody>
             <tr v-for="item in items" :key="item.name">
-                <td style="min-width: 96px">{{ item.name }}</td>
-                <td style="min-width: 96px">{{ item.colour }}</td>
-                <td style="min-width: 96px">
+                <td style="min-width: 96px;">{{ item.name }}</td>
+                <td style="min-width: 96px;">{{ item.colour }}</td>
+                <td style="min-width: 96px;">
                     <a :href="item.link" style="text-decoration: none;">
                         {{ item.link }}
                     </a>
@@ -97,7 +97,7 @@ onMounted(() => {
                         @unauthorized="unauthorizedResponse"
                     />
                 </td>
-                <td v-else style="padding: 16px 16px 16px 16px">{{ item.assigned }}</td>
+                <td v-else style="padding: 16px 16px 16px 16px;">{{ item.assigned }}</td>
             </tr>
         </tbody>
     </v-table>

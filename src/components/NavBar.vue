@@ -33,12 +33,13 @@ import logo from '@/assets/logo.svg'
 
 
         <v-app-bar-title>{{ t('title') }}</v-app-bar-title>
-
-        <v-spacer></v-spacer>
-
+        
+        <!-- This is a bad way of doing this it seems -->
         <v-img
+            style="min-width: 62px; max-width: 62px; margin-right: 22px;"
             height="48"
             :src="logo"
+            :alt="t('logo')"
         ></v-img>
     </v-app-bar>
 
