@@ -13,7 +13,7 @@ const items = [
         }
     },
     {
-        title: t('about'),
+        title: t('about.about'),
         props: {
             prependIcon: 'mdi-information',
             to: '/about',
@@ -31,12 +31,11 @@ import logo from '@/assets/logo.svg'
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         </template>
 
-
         <v-app-bar-title>{{ t('title') }}</v-app-bar-title>
-        
+
         <!-- This is a bad way of doing this it seems -->
         <v-img
-            style="min-width: 62px; max-width: 62px; margin-right: 22px;"
+            style="min-width: 62px; max-width: 62px; margin-right: 22px"
             height="48"
             :src="logo"
             :alt="t('logo')"

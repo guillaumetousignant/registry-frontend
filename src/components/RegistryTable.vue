@@ -71,7 +71,11 @@ onMounted(() => {
         :title="alert_title"
         :text="alert_text"
     ></v-alert>
-    <v-table fixed-header style="max-width: 1680px; min-width: 128px; padding: 16px 16px 16px 16px;" class="registry_table">
+    <v-table
+        fixed-header
+        style="max-width: 1680px; min-width: 128px; padding: 16px 16px 16px 16px"
+        class="registry_table"
+    >
         <thead>
             <tr>
                 <th class="text-left">{{ t('table.item') }}</th>
@@ -82,10 +86,10 @@ onMounted(() => {
         </thead>
         <tbody>
             <tr v-for="item in items" :key="item.name">
-                <td style="min-width: 96px;">{{ item.name }}</td>
-                <td style="min-width: 96px;">{{ item.colour }}</td>
-                <td style="min-width: 96px;">
-                    <a :href="item.link" style="text-decoration: none;">
+                <td style="min-width: 96px">{{ item.name }}</td>
+                <td style="min-width: 96px">{{ item.colour }}</td>
+                <td style="min-width: 96px">
+                    <a :href="item.link" style="text-decoration: none">
                         {{ item.link }}
                     </a>
                 </td>
@@ -97,7 +101,7 @@ onMounted(() => {
                         @unauthorized="unauthorizedResponse"
                     />
                 </td>
-                <td v-else style="padding: 16px 16px 16px 16px;">{{ item.assigned }}</td>
+                <td v-else style="padding: 16px 16px 16px 16px">{{ item.assigned }}</td>
             </tr>
         </tbody>
     </v-table>

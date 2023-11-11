@@ -2,7 +2,14 @@
     "fish": "fish",
     "title": "Ari & Guillaume Baby Registry",
     "registry": "Registry",
-    "about": "About",
+    "about": {
+        "about": "About",
+        "title": "About",
+        "p1": "For any question regarding items, contact ",
+        "p2": ", and for any question regarding the website, contact ",
+        "p3": ".",
+        "p4": "We are very happy to welcome a baby girl to our family in end of April 2024."
+    },
     "logo": "Logo image",
     "table": {
         "item": "Item",

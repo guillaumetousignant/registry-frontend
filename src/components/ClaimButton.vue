@@ -100,7 +100,7 @@ function claimItems() {
 <template>
     <div class="d-flex align-center justify-space-between">
         <v-text-field
-            style="padding: 8px 16px 8px 0px; min-width: 256px;"
+            style="padding: 8px 16px 8px 0px; min-width: 256px"
             density="compact"
             hide-details
             prepend-inner-icon="mdi-account"
@@ -110,7 +110,13 @@ function claimItems() {
             :error-messages="claim_error_message"
             v-on:keyup.enter="claimItems"
         ></v-text-field>
-        <v-btn style="padding-left: 16px;" variant="text" color="secondary" :loading="is_loading" @click="claimItems">
+        <v-btn
+            style="padding-left: 16px"
+            variant="text"
+            color="secondary"
+            :loading="is_loading"
+            @click="claimItems"
+        >
             {{ t('claim.submit') }}
         </v-btn>
     </div>

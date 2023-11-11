@@ -13,7 +13,7 @@ import { createLogger } from 'vue-logger-plugin'
 
 const logger = createLogger({
     enabled: true,
-    level: "error"
+    level: 'error'
 })
 
 const myCustomLightTheme: ThemeDefinition = {

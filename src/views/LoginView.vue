@@ -53,7 +53,7 @@ async function authenticate() {
 </script>
 
 <template>
-    <v-card width="400">
+    <v-card width="400" elevation="2" style="padding-left: 2px; padding-right: 2px">
         <v-card-item>
             <v-card-title>{{ t('login.title') }}</v-card-title>
         </v-card-item>
