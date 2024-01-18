@@ -60,10 +60,12 @@ import enCA from './locales/en-CA.json'
 
 type MessageSchema = typeof enCA
 
+const usersLanguage = window.navigator.language
+const usersLocale = usersLanguage.startsWith("fr") ? 'fr-CA' : 'en-CA'
 const i18n = createI18n<[MessageSchema], 'en-CA' | 'fr-CA'>({
     inheritLocale: true,
     legacy: false, // you must set `false`, to use Composition API
-    locale: 'fr-CA', // set locale
+    locale: usersLocale, // set locale
     fallbackLocale: 'en-CA', // set fallback locale
     messages: {
         'fr-CA': frCA,
