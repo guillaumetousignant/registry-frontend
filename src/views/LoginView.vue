@@ -59,21 +59,19 @@ async function authenticate() {
         </v-card-item>
 
         <v-card-text>
-            <v-form>
-                <v-text-field
-                    v-model="password"
-                    id="password"
-                    v-bind:label="t('login.password')"
-                    name="password"
-                    prepend-icon="mdi-lock"
-                    variant="outlined"
-                    :type="show ? 'text' : 'password'"
-                    :error-messages="login_error_message"
-                    :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
-                    @click:append="show = !show"
-                    v-on:keyup.enter="authenticate"
-                ></v-text-field>
-            </v-form>
+            <v-text-field
+                v-model="password"
+                id="password"
+                v-bind:label="t('login.password')"
+                name="password"
+                prepend-icon="mdi-lock"
+                variant="outlined"
+                :type="show ? 'text' : 'password'"
+                :error-messages="login_error_message"
+                :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append="show = !show"
+                v-on:keyup.enter="authenticate"
+            ></v-text-field>
         </v-card-text>
         <v-card-actions>
             <v-spacer></v-spacer>
