@@ -64,45 +64,57 @@ onMounted(() => {
 </script>
 
 <template>
-    <v-alert
-        v-model="alert"
-        closable
-        :type="alert_type"
-        :title="alert_title"
-        :text="alert_text"
-    ></v-alert>
-    <v-table
-        fixed-header
-        style="max-width: 1680px; min-width: 128px; padding: 16px 16px 16px 16px"
-        class="registry_table"
-    >
-        <thead>
-            <tr>
-                <th class="text-left">{{ t('table.item') }}</th>
-                <th class="text-left">{{ t('table.colour') }}</th>
-                <th class="text-left">{{ t('table.link') }}</th>
-                <th class="text-left">{{ t('table.assigned') }}</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="item in items" :key="item.name">
-                <td style="min-width: 96px">{{ item.name }}</td>
-                <td style="min-width: 96px">{{ item.colour }}</td>
-                <td style="min-width: 96px">
-                    <a :href="item.link" style="text-decoration: none">
-                        {{ item.link }}
-                    </a>
-                </td>
-                <td v-if="item.assigned == null">
-                    <ClaimButton
-                        :item_id="item.id"
-                        @claimed="getItems"
-                        @conflict="alreadyClaimed"
-                        @unauthorized="unauthorizedResponse"
-                    />
-                </td>
-                <td v-else style="padding: 16px 16px 16px 16px">{{ item.assigned }}</td>
-            </tr>
-        </tbody>
-    </v-table>
+    <div class="d-flex flex-column">
+        <v-alert
+            v-model="alert"
+            closable
+            :type="alert_type"
+            :title="alert_title"
+            :text="alert_text"
+        ></v-alert>
+        <v-table
+            fixed-header
+            style="max-width: 1680px; min-width: 128px; padding: 16px 16px 16px 16px"
+            class="registry_table"
+        >
+            <thead>
+                <tr>
+                    <th class="text-left">{{ t('table.item') }}</th>
+                    <th class="text-left">{{ t('table.colour') }}</th>
+                    <th class="text-left">{{ t('table.link') }}</th>
+                    <th class="text-left">{{ t('table.assigned') }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in items" :key="item.name">
+                    <td style="min-width: 96px">{{ item.name }}</td>
+                    <td style="min-width: 96px">{{ item.colour }}</td>
+                    <td style="min-width: 96px">
+                        <a :href="item.link" style="text-decoration: none">
+                            {{ item.link }}
+                        </a>
+                    </td>
+                    <td v-if="item.assigned == null">
+                        <ClaimButton
+                            :item_id="item.id"
+                            @claimed="getItems"
+                            @conflict="alreadyClaimed"
+                            @unauthorized="unauthorizedResponse"
+                        />
+                    </td>
+                    <td v-else style="padding: 16px 16px 16px 16px">{{ item.assigned }}</td>
+                </tr>
+            </tbody>
+        </v-table>
+    </div>
 </template>
+
+<style>
+.v-alert {
+  position: fixed;
+  left: 50%;
+  bottom: 50px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
+</style>
