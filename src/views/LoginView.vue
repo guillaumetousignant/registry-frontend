@@ -23,7 +23,7 @@ async function authenticate() {
     is_loading.value = true
     try {
         axios
-            .get('https://api.arietguillaume.ca/api/v1/authorize/', {
+            .get(`${import.meta.env.VITE_REGISTRY_BACKEND_API_URL}/authorize/`, {
                 // Axios looks for the `auth` option, and, if it is set, formats a
                 // basic auth header for you automatically.
                 auth: {

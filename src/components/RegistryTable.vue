@@ -30,7 +30,7 @@ let alert_text = ref('')
 
 function getItems() {
     axios
-        .get('https://api.arietguillaume.ca/api/v1/items', {
+        .get(`${import.meta.env.VITE_REGISTRY_BACKEND_API_URL}/items`, {
             headers: { Authorization: `Bearer ${token.token}` }
         })
         .then(

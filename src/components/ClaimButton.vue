@@ -52,7 +52,7 @@ function claimItems() {
     if (assigned.value) {
         axios
             .post(
-                `https://api.arietguillaume.ca/api/v1/items/${props.item_id}/claim`,
+                `${import.meta.env.VITE_REGISTRY_BACKEND_API_URL}/items/${props.item_id}/claim`,
                 { assigned: assigned.value },
                 {
                     headers: { Authorization: `Bearer ${token.token}` }
