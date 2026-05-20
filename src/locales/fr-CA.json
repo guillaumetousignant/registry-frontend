@@ -1,14 +1,15 @@
 {
     "fish": "poisson",
-    "title": "Registre bébé Ari & Guillaume",
+    "title": "Registre bébé Désirée & Félix",
     "registry": "Registre",
     "about": {
         "about": "À propos",
         "title": "À propos",
         "p1": "Pour toute question sur les items, contacter ",
-        "p2": ", et pour toute question sur le site, contacter ",
-        "p3": ".",
-        "p4": "Nous sommes très heureux d'accueillir une petite fille dans notre famille en fin avril 2024."
+        "p2": " ou ",
+        "p3": ", et pour toute question sur le site, contacter ",
+        "p4": ".",
+        "p5": "Nous sommes très heureux d'accueillir un petit garçon début septembre 2026."
     },
     "logo": "Image logo",
     "table": {
